@@ -10,7 +10,7 @@
 
 // You will need to uncomment this when you explore line tracing.
 //
-`include "/home/zh476/ece4750/tut3/sim/vc/trace.v"
+`include "vc/trace.v"
 
 module tut3_verilog_regincr_RegIncr
 (
@@ -46,7 +46,7 @@ module tut3_verilog_regincr_RegIncr
   logic [`VC_TRACE_NBITS-1:0] str;
   `VC_TRACE_BEGIN
   begin
-    $sformat( str, "%x (%x) %x", in_, reg_out, out );
+    $sformat( str, "in %x reg_out (%x) out %x", in_, reg_out, out );
     vc_trace.append_str( trace_str, str );
   end
   `VC_TRACE_END

@@ -22,7 +22,7 @@ from RegIncr import RegIncr
 sequence = list(range(1, 21, 2))  # Generates [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 # Shuffle the sequence randomly
 # random.shuffle(sequence)
-input_values = [ sequence.pop() for _ in range(9) ]
+input_values = [ sequence.pop(0) for _ in range(10) ]
 
 # Add three zero values to end of list of input values
 
@@ -38,7 +38,7 @@ model.elaborate()
 
 model.apply( VerilogPlaceholderPass() )
 model = VerilogTranslationImportPass()( model )
-model.apply( DefaultPassGroup() )
+model.apply( DefaultPassGroup(linetrace=True) )
 
 # Reset simulator
 
@@ -55,7 +55,6 @@ for input_value in input_values:
 
   # Print input and output ports
 
-  print( f" cycle = {model.sim_cycle_count()}: in = {model.in_}, out = {model.out}" )
 
   # Tick simulator one cycle
 
