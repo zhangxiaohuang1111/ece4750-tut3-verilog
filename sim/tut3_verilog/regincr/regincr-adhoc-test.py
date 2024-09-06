@@ -13,13 +13,16 @@
 
 from pymtl3  import *
 from pymtl3.passes.backends.verilog import *
+import random
 
 from sys     import argv
 from RegIncr import RegIncr
 
 # Get list of input values from command line
-
-input_values = [ int(x,0) for x in argv[1:] ]
+sequence = list(range(1, 21, 2))  # Generates [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+# Shuffle the sequence randomly
+# random.shuffle(sequence)
+input_values = [ sequence.pop() for _ in range(9) ]
 
 # Add three zero values to end of list of input values
 
