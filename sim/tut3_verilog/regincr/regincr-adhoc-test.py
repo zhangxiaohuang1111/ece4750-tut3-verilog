@@ -38,7 +38,7 @@ model.elaborate()
 
 model.apply( VerilogPlaceholderPass() )
 model = VerilogTranslationImportPass()( model )
-model.apply( DefaultPassGroup(linetrace=True) )
+model.apply( DefaultPassGroup(textwave=True) )
 
 # Reset simulator
 
@@ -55,8 +55,8 @@ for input_value in input_values:
 
   # Print input and output ports
 
-
   # Tick simulator one cycle
 
   model.sim_tick()
 
+model.print_textwave()
