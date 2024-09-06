@@ -21,7 +21,13 @@ module top;
   // This simulator script is incomplete. As part of the tutorial you
   // will need to instantiate and connect a RegIncr model here.
   // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
+tut3_verilog_regincr_RegIncr regincr
+(
+  .clk(clk),
+  .reset(reset),
+  .in_(in_),
+  .out(out)
+);
   // Simulate the registered incrementer
 
   initial begin
@@ -46,19 +52,19 @@ module top;
 
     in_ = 8'h13;
     #10;
-    $display( " cycle = 1: in = %x, out = %x", in_, out );
+    $display( " cycle = 2: in = %x, out = %x", in_, out );
 
     // Cycle 3
 
     in_ = 8'h25;
     #10;
-    $display( " cycle = 1: in = %x, out = %x", in_, out );
+    $display( " cycle = 3: in = %x, out = %x", in_, out );
 
     // Cycle 4
 
     in_ = 8'h37;
     #10;
-    $display( " cycle = 1: in = %x, out = %x", in_, out );
+    $display( " cycle = 4: in = %x, out = %x", in_, out );
 
     $finish;
   end
