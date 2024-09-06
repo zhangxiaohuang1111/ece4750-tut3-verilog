@@ -19,10 +19,10 @@ from sys     import argv
 from RegIncr import RegIncr
 
 # Get list of input values from command line
-sequence = list(range(1, 21, 2))  # Generates [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+# sequence = list(range(1, 21, 2))  # Generates [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
 # Shuffle the sequence randomly
 # random.shuffle(sequence)
-input_values = [ sequence.pop(0) for _ in range(10) ]
+input_values = [ int(x,0) for x in argv[1:] ]
 
 # Add three zero values to end of list of input values
 
@@ -38,7 +38,7 @@ model.elaborate()
 
 model.apply( VerilogPlaceholderPass() )
 model = VerilogTranslationImportPass()( model )
-model.apply( DefaultPassGroup(textwave=True) )
+model.apply( DefaultPassGroup(vcdwave="regincr-adhoc-test"))
 
 # Reset simulator
 
@@ -58,5 +58,3 @@ for input_value in input_values:
   # Tick simulator one cycle
 
   model.sim_tick()
-
-model.print_textwave()
