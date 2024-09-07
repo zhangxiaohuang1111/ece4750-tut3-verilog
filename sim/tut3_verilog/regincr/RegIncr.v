@@ -10,7 +10,7 @@
 
 // You will need to uncomment this when you explore line tracing.
 //
-`include "vc/trace.v"
+`include "/home/zh476/ece4750/tut3/sim/vc/trace.v"
 
 module tut3_verilog_regincr_RegIncr
 (
