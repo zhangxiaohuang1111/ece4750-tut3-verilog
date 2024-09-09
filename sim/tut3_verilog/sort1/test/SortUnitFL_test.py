@@ -54,7 +54,7 @@ def mk_test_vector_table( nstages, inputs ):
   inputs_val  = []
   for input_ in inputs:
     inputs_val.append( [1] + input_ )
-    outputs_val.append( [1] + deepcopy( sorted(input_) ) )
+    outputs_val.append( [1] + deepcopy( sorted(input_,reverse=True) ) )
 
   # Add final invalid inputs to the list of input values
 

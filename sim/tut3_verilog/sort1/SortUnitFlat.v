@@ -16,7 +16,7 @@
 
 `include "vc/trace.v"
 
-module tut3_verilog_sort_SortUnitFlat
+module tut3_verilog_sort1_SortUnitFlat
 #(
   parameter p_nbits = 1
 )(
@@ -71,11 +71,11 @@ module tut3_verilog_sort_SortUnitFlat
 
     // Sort elms 0 and 1
 
-    if ( elm0_S1 <= elm1_S1 ) begin
+    if ( elm0_S1 >= elm1_S1 ) begin
       elm0_next_S1 = elm0_S1;
       elm1_next_S1 = elm1_S1;
     end
-    else if ( elm0_S1 > elm1_S1 ) begin
+    else if ( elm0_S1 < elm1_S1 ) begin
       elm0_next_S1 = elm1_S1;
       elm1_next_S1 = elm0_S1;
     end
@@ -86,11 +86,11 @@ module tut3_verilog_sort_SortUnitFlat
 
     // Sort elms 2 and 3
 
-    if ( elm2_S1 <= elm3_S1 ) begin
+    if ( elm2_S1 >= elm3_S1 ) begin
       elm2_next_S1 = elm2_S1;
       elm3_next_S1 = elm3_S1;
     end
-    else if ( elm2_S1 > elm3_S1 ) begin
+    else if ( elm2_S1 < elm3_S1 ) begin
       elm2_next_S1 = elm3_S1;
       elm3_next_S1 = elm2_S1;
     end
@@ -132,11 +132,11 @@ module tut3_verilog_sort_SortUnitFlat
 
     // Sort elms 0 and 2
 
-    if ( elm0_S2 <= elm2_S2 ) begin
+    if ( elm0_S2 >= elm2_S2 ) begin
       elm0_next_S2 = elm0_S2;
       elm2_next_S2 = elm2_S2;
     end
-    else if ( elm0_S2 > elm2_S2 ) begin
+    else if ( elm0_S2 < elm2_S2 ) begin
       elm0_next_S2 = elm2_S2;
       elm2_next_S2 = elm0_S2;
     end
@@ -147,11 +147,11 @@ module tut3_verilog_sort_SortUnitFlat
 
     // Sort elms 1 and 3
 
-    if ( elm1_S2 <= elm3_S2 ) begin
+    if ( elm1_S2 >= elm3_S2 ) begin
       elm1_next_S2 = elm1_S2;
       elm3_next_S2 = elm3_S2;
     end
-    else if ( elm1_S2 > elm3_S2 ) begin
+    else if ( elm1_S2 < elm3_S2 ) begin
       elm1_next_S2 = elm3_S2;
       elm3_next_S2 = elm1_S2;
     end
@@ -198,11 +198,11 @@ module tut3_verilog_sort_SortUnitFlat
 
     // Sort elms 1 and 2
 
-    if ( elm1_S3 <= elm2_S3 ) begin
+    if ( elm1_S3 >= elm2_S3 ) begin
       elm1_next_S3 = elm1_S3;
       elm2_next_S3 = elm2_S3;
     end
-    else if ( elm1_S3 > elm2_S3 ) begin
+    else if ( elm1_S3 < elm2_S3 ) begin
       elm1_next_S3 = elm2_S3;
       elm2_next_S3 = elm1_S3;
     end
