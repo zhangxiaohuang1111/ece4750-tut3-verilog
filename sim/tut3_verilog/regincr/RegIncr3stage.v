@@ -1,16 +1,16 @@
 //========================================================================
-// RegIncr2stage
+// RegIncr3stage
 //========================================================================
-// Two-stage registered incrementer that uses structural composition to
+// Three-stage registered incrementer that uses structural composition to
 // instantitate and connect two instances of the single-stage registered
 // incrementer.
 
-`ifndef TUT3_VERILOG_REGINCR_REG_INCR_2STAGE_V
-`define TUT3_VERILOG_REGINCR_REG_INCR_2STAGE_V
+`ifndef TUT3_VERILOG_REGINCR_REG_INCR_3STAGE_V
+`define TUT3_VERILOG_REGINCR_REG_INCR_3STAGE_V
 
 `include "tut3_verilog/regincr/RegIncr.v"
 
-module tut3_verilog_regincr_RegIncr2stage
+module tut3_verilog_regincr_RegIncr3stage
 (
   input  logic       clk,
   input  logic       reset,
@@ -21,6 +21,8 @@ module tut3_verilog_regincr_RegIncr2stage
   // First stage
 
   logic [7:0] reg_incr_0_out;
+  logic [7:0] reg_incr_1_out;
+
 
   tut3_verilog_regincr_RegIncr reg_incr_0
   (
@@ -37,6 +39,14 @@ tut3_verilog_regincr_RegIncr reg_incr_1
   .clk (clk), 
   .reset (reset), 
   .in_ (reg_incr_0_out), 
+  .out (reg_incr_1_out) 
+);
+
+tut3_verilog_regincr_RegIncr reg_incr_2
+( 
+  .clk (clk), 
+  .reset (reset), 
+  .in_ (reg_incr_1_out), 
   .out (out) 
 );
   // ''' TUTORIAL TASK '''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -47,5 +57,5 @@ tut3_verilog_regincr_RegIncr reg_incr_1
 
 endmodule
 
-`endif /* TUT3_VERILOG_REGINCR_REG_INCR_2STAGE_V */
+`endif /* TUT3_VERILOG_REGINCR_REG_INCR_3STAGE_V */
 
