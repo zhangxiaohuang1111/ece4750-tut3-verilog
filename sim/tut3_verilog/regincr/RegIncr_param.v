@@ -3,27 +3,27 @@
 //========================================================================
 // Registered incrementer that is parameterized by the number of stages.
 
-`ifndef TUT3_VERILOG_REGINCR_REG_INCR_PARAM_V
-`define TUT3_VERILOG_REGINCR_REG_INCR_PARAM_V
+`ifndef TUT3_VERILOG_REGINCR_REG_INCR_NSTAGE_V
+`define TUT3_VERILOG_REGINCR_REG_INCR_NSTAGE_V
 
 `include "tut3_verilog/regincr/RegIncr.v"
 
-module tut3_verilog_regincr_RegIncrNstage
+module tut3_verilog_regincr_RegIncr_param
 #(
-  parameter p_nstages = 2
-  parameter p_nbits   = 8
+  parameter p_nstages = 2,
+  parameter p_bitwidths = 8
 )(
   input  logic       clk,
   input  logic       reset,
-  input  logic [p_nbits-1:0] in_,
-  output logic [p_nbits-1:0] out
+  input  logic [p_bitwidths-1:0] in_,
+  output logic [p_bitwidths-1:0] out
 );
 
   // This defines an _array_ of signals. There are p_nstages+1 signals
   // and each signal is 8 bits wide. We will use this array of signals to
   // hold the output of each registered incrementer stage.
 
-  logic [p_nbits-1:0] reg_incr_out [p_nstages+1];
+  logic [p_bitwidths-1:0] reg_incr_out [p_nstages+1];
 
   // Connect the input port of the module to the first signal in the
   // reg_incr_out signal array.
@@ -55,5 +55,4 @@ module tut3_verilog_regincr_RegIncrNstage
 
 endmodule
 
-`endif /* TUT3_VERILOG_REGINCR_REG_INCR_PARAM_V */
-
+`endif /* TUT3_VERILOG_REGINCR_REG_INCR_NSTAGE_V */
