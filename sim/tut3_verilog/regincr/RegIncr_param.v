@@ -10,8 +10,8 @@
 
 module tut3_verilog_regincr_RegIncr_param
 #(
-  parameter p_nstages = 2,
-  parameter p_bitwidths = 8
+  parameter p_nstages = 3,
+  parameter p_bitwidths = 9
 )(
   input  logic       clk,
   input  logic       reset,
