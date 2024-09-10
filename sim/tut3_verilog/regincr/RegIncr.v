@@ -16,20 +16,20 @@ module tut3_verilog_regincr_RegIncr
 (
   input  logic       clk,
   input  logic       reset,
-  input  logic [7:0] in_,
-  output logic [7:0] out
+  input  logic [8:0] in_,
+  output logic [8:0] out
 );
 
   // Sequential logic
 
-  logic [7:0] reg_out;
+  logic [8:0] reg_out;
   always @( posedge clk ) begin
     if ( reset )
       reg_out <= 0;
     else
       reg_out <= in_;
   end
-  logic [7:0] temp_wire;
+  logic [8:0] temp_wire;
   always_comb begin
     temp_wire = reg_out + 1;
   end
