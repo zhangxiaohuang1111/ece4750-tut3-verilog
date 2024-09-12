@@ -13,23 +13,26 @@
 `include "/home/zh476/ece4750/tut3/sim/vc/trace.v"
 
 module tut3_verilog_regincr_RegIncr
+#(
+  parameter p_bitwidths = 2
+)
 (
   input  logic       clk,
   input  logic       reset,
-  input  logic [8:0] in_,
-  output logic [8:0] out
+  input  logic [p_bitwidths-1:0] in_,
+  output logic [p_bitwidths-1:0] out
 );
 
   // Sequential logic
 
-  logic [8:0] reg_out;
+  logic [p_bitwidths-1:0] reg_out;
   always @( posedge clk ) begin
     if ( reset )
       reg_out <= 0;
     else
       reg_out <= in_;
   end
-  logic [8:0] temp_wire;
+  logic [p_bitwidths-1:0] temp_wire;
   always_comb begin
     temp_wire = reg_out + 1;
   end

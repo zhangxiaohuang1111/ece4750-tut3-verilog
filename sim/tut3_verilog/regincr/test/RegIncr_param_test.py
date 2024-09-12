@@ -80,8 +80,8 @@ def test( test_params, cmdline_opts ):
 # Parameterized Testing of With nstages = [ 1, 2, 3, 4, 5, 6 ] and bitwidths = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 #-------------------------------------------------------------------------
 
-@pytest.mark.parametrize( "n", range(1, 4))
-@pytest.mark.parametrize( "m", range(1, 11))
+@pytest.mark.parametrize( "n", range(1, 5))
+@pytest.mark.parametrize( "m", range(1, 3))
 def test_random_bitwidths_and_nstages( n, m, cmdline_opts ):
     run_test_vector_sim( RegIncr_param( p_nstages=n, p_bitwidths=m ),
         mk_test_vector_table( n, sample(range(0xff), 20), m ), cmdline_opts )

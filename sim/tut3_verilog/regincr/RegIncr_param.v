@@ -37,7 +37,7 @@ module tut3_verilog_regincr_RegIncr_param
   generate
   for ( i = 0; i < p_nstages; i = i + 1 ) begin: gen
 
-    tut3_verilog_regincr_RegIncr reg_incr
+    tut3_verilog_regincr_RegIncr#(p_bitwidths) reg_incr
     (
       .clk   (clk),
       .reset (reset),
